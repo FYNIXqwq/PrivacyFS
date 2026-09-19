@@ -1,0 +1,13 @@
+员工编号,姓名,部门,岗位,工作城市,出生年份,入职日期,工作邮箱,模拟联系电话
+E1001,林知远,研发平台,技术负责人,杭州,1987,2020-03-16,lin.zhiyuan@chenglan.example,SIM-PHONE-E1001
+E1002,周可宁,项目交付,项目经理,长沙,1990,2021-06-07,zhou.kening@chenglan.example,SIM-PHONE-E1002
+E1003,陈宇航,研发平台,后端工程师,长沙,1993,2022-04-11,chen.yuhang.dev@chenglan.example,SIM-PHONE-E1003
+E1004,沈清禾,研发平台,数据分析师,成都,1994,2022-10-17,shen.qinghe@chenglan.example,SIM-PHONE-E1004
+E1005,顾明川,商务拓展,商务总监,杭州,1988,2020-09-21,gu.mingchuan@chenglan.example,SIM-PHONE-E1005
+E1006,许知遥,研发平台,安全工程师,南京,1992,2022-02-14,xu.zhiyao@chenglan.example,SIM-PHONE-E1006
+E1007,宋予安,职能支持,财务经理,杭州,1989,2021-01-18,song.yuan@chenglan.example,SIM-PHONE-E1007
+E1008,叶书宁,职能支持,人事伙伴,成都,1995,2023-03-06,ye.shuning@chenglan.example,SIM-PHONE-E1008
+E1009,陈宇航,商务拓展,售前顾问,北京,1991,2024-05-20,chen.yuhang.sales@chenglan.example,SIM-PHONE-E1009
+E1010,唐以沫,项目交付,测试工程师,杭州,1996,2023-08-14,tang.yimo@chenglan.example,SIM-PHONE-E1010
+E1011,陆星澜,职能支持,合规顾问,南京,1990,2021-11-08,lu.xinglan@chenglan.example,SIM-PHONE-E1011
+E1012,韩景行,项目交付,运维工程师,长沙,1994,2024-01-15,han.jingxing@chenglan.example,SIM-PHONE-E1012

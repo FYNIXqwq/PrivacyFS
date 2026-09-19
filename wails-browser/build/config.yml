@@ -1,0 +1,21 @@
+version: '3'
+info:
+  companyName: PrivacyFS
+  productName: PrivacyFS Browser
+  productIdentifier: local.privacyfs.browser
+  description: Local read-only directory browser
+  version: 0.1.0
+dev_mode:
+  root_path: .
+  log_level: warn
+  debounce: 1000
+  ignore:
+    dir: [.git, bin, .cache]
+    file: ['*_test.go', '*.syso']
+    watched_extension: ['*.go', '*.js', '*.css', '*.html']
+    git_ignore: true
+  executes:
+    - cmd: wails3 build
+      type: blocking
+    - cmd: ./bin/PrivacyFS-Browser.exe
+      type: primary

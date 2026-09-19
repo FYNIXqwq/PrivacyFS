@@ -1,0 +1,10 @@
+{
+  "schema_version":"d3-task-profile-1",
+  "task":"collaboration_statistics",
+  "recipient":"synthetic-statistics-reviewer",
+  "fields":[
+    {"name":"客户编号","output_name":"customer_id","mode":"alias"},
+    {"name":"会议编号","output_name":"meeting_id","mode":"alias"},
+    {"name":"合作状态","output_name":"status","approved_values":["暂停洽谈","终止合作"]}
+  ]
+}

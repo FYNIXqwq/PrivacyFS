@@ -1,0 +1,2 @@
+pid=P001;rid=R001;fact=需要复核
+pid=P001;rid=R002;fact=处理完成

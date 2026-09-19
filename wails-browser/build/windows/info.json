@@ -1,0 +1,14 @@
+{
+  "fixed": {
+    "file_version": "0.1.0.0"
+  },
+  "info": {
+    "0000": {
+      "ProductVersion": "0.1.0",
+      "CompanyName": "PrivacyFS",
+      "FileDescription": "PrivacyFS Directory Browser",
+      "ProductName": "PrivacyFS Browser",
+      "Comments": "Local read-only directory browser"
+    }
+  }
+}

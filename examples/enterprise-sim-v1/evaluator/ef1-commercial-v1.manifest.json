@@ -1,0 +1,9 @@
+{
+  "version": "enterprise-commercial-v1",
+  "sha256": "52736e6756d9ef25f7a43a2e6732cf5ff071a106f7baf0e52207d6c89a883750",
+  "cases": 1,
+  "families": 1,
+  "synthetic": true,
+  "split_policy": "development_only",
+  "scope": "one_reduced_enterprise_scenario_not_whole_folder_or_independent_accuracy"
+}

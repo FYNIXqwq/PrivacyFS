@@ -1,0 +1,5 @@
+会议编号,合作状态,assertion_state,记录摘要
+M0821,交付中,positive,验收环境待就绪
+M0822,暂停洽谈,positive,付款条件未达成
+M0823,方案验证,positive,数据验证进行中
+M0824,终止合作,positive,需求范围变化

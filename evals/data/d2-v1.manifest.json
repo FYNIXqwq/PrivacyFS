@@ -1,0 +1,15 @@
+{
+  "version": "d2-v1",
+  "cases": 256,
+  "families": 16,
+  "sha256": "552822f34ed3bdf0cd30ccd84048faef703e7dfb2920e9c84c4f48c74fdd92f4",
+  "split_policy": "whole_topology_namespace_wrapper_family",
+  "validation_families": [
+    3,
+    6,
+    9,
+    12,
+    15
+  ],
+  "synthetic": true
+}

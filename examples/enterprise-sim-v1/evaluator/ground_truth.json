@@ -1,0 +1,305 @@
+{
+  "schema_version": "enterprise-sim-truth-v1",
+  "synthetic": true,
+  "as_of": "2026-08-28",
+  "employee_count": 12,
+  "external_client_count": 4,
+  "project_count": 5,
+  "employee_ids": [
+    "E1001",
+    "E1002",
+    "E1003",
+    "E1004",
+    "E1005",
+    "E1006",
+    "E1007",
+    "E1008",
+    "E1009",
+    "E1010",
+    "E1011",
+    "E1012"
+  ],
+  "client_ids": [
+    "C1001",
+    "C1002",
+    "C1003",
+    "C1004"
+  ],
+  "project_ids": [
+    "P2601",
+    "P2602",
+    "P2603",
+    "P2604",
+    "P26I1"
+  ],
+  "august_gross_pay": 397500,
+  "standard_project_cost": 347840,
+  "latest_external_status_counts": {
+    "交付中": 1,
+    "暂停洽谈": 1,
+    "方案验证": 1,
+    "终止合作": 1
+  },
+  "assertions": [
+    {
+      "id": "R01",
+      "claim": "E1004的姓名可与其8月税前应发27300元关联",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/01_人力资源/员工花名册_2026-08.csv",
+          "contains": "E1004,沈清禾"
+        },
+        {
+          "path": "workspace/01_人力资源/薪酬/2026-08_薪酬明细.csv",
+          "contains": "E1004,2026-08,24000,800,2500,27300"
+        }
+      ],
+      "boundary": "显式员工编号；当前结构化关系可建模"
+    },
+    {
+      "id": "R02",
+      "claim": "沈清禾有长期门诊随访的请假记录",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/01_人力资源/员工花名册_2026-08.csv",
+          "contains": "E1004,沈清禾"
+        },
+        {
+          "path": "workspace/01_人力资源/考勤/2026-08_请假记录.csv",
+          "contains": "LV0801,E1004,病假,2026-08-12,2026-08-12,长期门诊随访"
+        }
+      ],
+      "boundary": "不支持具体疾病、严重程度或劳动能力结论"
+    },
+    {
+      "id": "R03",
+      "claim": "无姓名的工位调整申请可经工位与资产表关联到E1004",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/01_人力资源/例外审批/工位调整申请.md",
+          "contains": "4F-W13"
+        },
+        {
+          "path": "workspace/05_研发与运维/资产领用.csv",
+          "contains": "SIM-LAP-E1004,E1004,BDG-7103,成都,4F-W13"
+        }
+      ],
+      "boundary": "自然语言＋资源标识；当前配置未自动抽取此通路"
+    },
+    {
+      "id": "R04",
+      "claim": "霁川冷链对应星港，对客报价186万、内部底价165万",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/02_客户与商务/客户主数据.csv",
+          "contains": "C1001,霁川冷链设备有限公司"
+        },
+        {
+          "path": "workspace/03_项目交付/项目台账.csv",
+          "contains": "P2601,星港,C1001"
+        },
+        {
+          "path": "workspace/02_客户与商务/报价审批_内部.csv",
+          "contains": "Q2601,P2601,1860000,1650000"
+        }
+      ],
+      "boundary": "不能把内部底价当作签约价；商业秘密关联"
+    },
+    {
+      "id": "R05",
+      "claim": "云栖商业截至8月26日处于暂停洽谈",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/02_客户与商务/客户主数据.csv",
+          "contains": "C1002,云栖商业运营有限公司"
+        },
+        {
+          "path": "workspace/03_项目交付/会议索引_最新评审.csv",
+          "contains": "C1002,P2602,M0822"
+        },
+        {
+          "path": "workspace/03_项目交付/会议状态摘录_2026-08-28.csv",
+          "contains": "M0822,暂停洽谈,positive"
+        }
+      ],
+      "boundary": "三文件显式关联；单看状态摘录没有企业名"
+    },
+    {
+      "id": "R06",
+      "claim": "完整试点主题可借公开报道识别霁川冷链",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/03_项目交付/会议索引_最新评审.csv",
+          "contains": "西南冷链夜班追溯试点"
+        },
+        {
+          "path": "attacker_context/public/行业活动报道.md",
+          "contains": "霁川冷链设备有限公司介绍了“西南冷链夜班追溯试点”"
+        }
+      ],
+      "boundary": "需要声明的外部背景；当前产品默认不建模"
+    },
+    {
+      "id": "R07",
+      "claim": "归帆的新化名可经主题、历史编号和公开名录关联到安汀能源",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/03_项目交付/会议索引_最新评审.csv",
+          "contains": "沿海储能巡检移动端升级"
+        },
+        {
+          "path": "attacker_context/history/2026-08-05_外部项目摘要.csv",
+          "contains": "PUB-A17,沿海储能巡检移动端升级"
+        },
+        {
+          "path": "attacker_context/public/合作名录摘录.csv",
+          "contains": "PUB-A17,安汀能源服务有限公司"
+        }
+      ],
+      "boundary": "需同时获得历史和公开背景；不同化名不自动阻断语义关联"
+    },
+    {
+      "id": "R08",
+      "claim": "南京安全工程师等准标识可缩小到许知遥",
+      "expected": "supported",
+      "sources": [
+        {
+          "path": "workspace/01_人力资源/员工花名册_2026-08.csv",
+          "contains": "E1006,许知遥,研发平台,安全工程师,南京"
+        },
+        {
+          "path": "attacker_context/public/官网团队简介.md",
+          "contains": "许知遥，南京办公室安全工程师"
+        }
+      ],
+      "boundary": "只在这个模拟群体及背景中成立；不代表现实人口唯一性"
+    },
+    {
+      "id": "N01",
+      "claim": "两个陈宇航是同一人，均有C级期中观察",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/01_人力资源/员工花名册_2026-08.csv",
+          "contains": "E1003,陈宇航,研发平台"
+        },
+        {
+          "path": "workspace/01_人力资源/员工花名册_2026-08.csv",
+          "contains": "E1009,陈宇航,商务拓展"
+        },
+        {
+          "path": "workspace/01_人力资源/绩效/2026Q3_期中观察.csv",
+          "contains": "E1009,2026Q3期中,B"
+        }
+      ],
+      "boundary": "E1003与E1009是不同主体；不能按姓名合并"
+    },
+    {
+      "id": "N02",
+      "claim": "白榆客户已经破产",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/02_客户与商务/邮件/2026-08-19_白榆付款条件.eml",
+          "contains": "我们没有破产证明"
+        }
+      ],
+      "boundary": "疑问和引用不是肯定事实"
+    },
+    {
+      "id": "N03",
+      "claim": "归帆当前仍在交付中",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/03_项目交付/历史/会议状态_2026-07.csv",
+          "contains": "P2604,2026-07-31,交付中"
+        },
+        {
+          "path": "workspace/03_项目交付/会议状态摘录_2026-08-28.csv",
+          "contains": "M0824,终止合作,positive"
+        }
+      ],
+      "boundary": "历史快照不等于当前状态；截止2026-08-28"
+    },
+    {
+      "id": "N04",
+      "claim": "研发陈宇航已被决定裁员",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/06_内部沟通/管理例会_2026-08-27.md",
+          "contains": "尚无解除劳动关系或调岗决定"
+        }
+      ],
+      "boundary": "讨论/辅导不代表正式人事决定"
+    },
+    {
+      "id": "N05",
+      "claim": "同项目的E1003也有长期门诊随访记录",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/03_项目交付/项目成员.csv",
+          "contains": "P2601,E1003"
+        },
+        {
+          "path": "workspace/03_项目交付/项目成员.csv",
+          "contains": "P2601,E1004"
+        },
+        {
+          "path": "workspace/01_人力资源/考勤/2026-08_请假记录.csv",
+          "contains": "LV0802,E1003,年假"
+        }
+      ],
+      "boundary": "图可达和同组关系不等于敏感属性属于另一个人"
+    },
+    {
+      "id": "N06",
+      "claim": "白榆木色采购说明白榆客户项目有新进展",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/07_普通业务/办公耗材采购.csv",
+          "contains": "会议桌,白榆木色"
+        },
+        {
+          "path": "workspace/07_普通业务/培训计划_九月.md",
+          "contains": "会议室白榆的桌面材料确认为白榆木色"
+        }
+      ],
+      "boundary": "普通名词/会议室与项目代号同形"
+    },
+    {
+      "id": "N07",
+      "claim": "E1006的标准小时费率能够推出真实工资",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/04_财务/月结说明_2026-08.md",
+          "contains": "不能将小时费率乘160倒推员工实际工资"
+        }
+      ],
+      "boundary": "成本模型与实际薪酬是不同口径"
+    },
+    {
+      "id": "N08",
+      "claim": "E1011的绩效等级已经确认",
+      "expected": "unsupported",
+      "sources": [
+        {
+          "path": "workspace/01_人力资源/绩效/2026Q3_期中观察.csv",
+          "contains": "E1011,2026Q3期中,未评定,unknown"
+        }
+      ],
+      "boundary": "unknown不能当成负面结论或肯定标签"
+    }
+  ]
+}

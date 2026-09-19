@@ -1,0 +1,123 @@
+# Python environments, caches and generated packaging
+.venv/
+.venv-*/
+venv/
+.review-deps/
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Frontend dependencies (keep source and lockfiles)
+node_modules/
+
+# Local AI instructions and internal planning/review records
+AGENTS.md
+CLAUDE.md
+/CODE_REVIEW.md
+/*_IMPLEMENTATION_REPORT.md
+/DEVELOPMENT_PLAN.md
+/IMPLEMENTATION_PLAN.md
+/PROJECT_ASSESSMENT_*.md
+/MARKET_RESEARCH_*.md
+/REPOSITORY_HYGIENE_*.md
+/PRIVACY_AUDIT_*.md
+/THIRD_PARTY_AUDIT_*.md
+/FILENAME_PRECISION_*.md
+/GUI_SCALE_*.md
+/GUI_UI_FIX_*.md
+/NTFS_PREVIEW_PERFORMANCE.md
+
+# Compiled outputs; wails-browser/build/ contains required source resources
+*.exe
+*.dll
+*.syso
+*.whl
+
+# Keep reviewed diagnostic scripts, exclude their synthetic artifacts
+.review/*
+!.review/*.py
+!.review/wails-ui-qa.mjs
+!.review/wails-virtual-cdp.mjs
+
+# Slint frontend stays local; gui/ also contains shared workbench backends.
+/src/privacyfs/gui/app.py
+/src/privacyfs/gui/main.slint
+/src/privacyfs/gui/__main__.py
+/PrivacyFS-GUI.vbs
+/tests/test_gui_theme.py
+/.review/gui_smoke.py
+/.review/verify_gui_delivery.py
+
+# Sensitive local state (including SQLite sidecars and exported mappings)
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+mapping*.json
+mapping*.csv
+
+# Private desktop sessions and default GUI/workbench report names
+# Arbitrarily named exports belong in /local-data/ or outside this repository.
+*.pfsreview
+privacyfs-names-*.json
+report-[0-9]*.json
+report-[0-9]*.csv
+
+# Real rules are private; only reviewed synthetic examples are included
+rules*.yaml
+rules*.yml
+!/rules.example.yaml
+!/examples/enterprise-sim-v1/controls/rules.synthetic.yaml
+
+# Local credentials and private keys
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Private inputs, exports and state belong here (or outside the repository).
+# Ignoring a state marker alone does NOT exclude the rest of its directory.
+/local-data/
+.privacyfs/
+.privacyfs-state.json
+.privacyfs-release.json
+
+# User-provided reference checkout and paper, retained locally
+/pi-main/
+/2606.12341v1.pdf
+
+# Local model weights and download directories (never commit model binaries)
+/models/
+/weights/
+/checkpoints/
+*.gguf
+*.ggml
+*.safetensors
+*.onnx
+*.onnx_data
+*.ckpt
+*.pt
+pytorch_model*.bin
+adapter_model*.bin
+ggml*.bin
+# Other .bin/.pth weights belong in the directories above; do not hide
+# unrelated binary fixtures or Python .pth configuration files globally.
+
+# Mirror transaction state
+.privacyfs-build-*/
+.privacyfs-backup-*/
+.privacyfs-transaction-*
+.privacyfs-lock-*
+.privacyfs-mirror

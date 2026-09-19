@@ -1,0 +1,37 @@
+{
+  "schema_version": "d3-task-profile-1",
+  "task": "collaboration_statistics",
+  "recipient": "sim-external-analyst",
+  "fields": [
+    {
+      "name": "客户编号",
+      "output_name": "client_id",
+      "mode": "alias"
+    },
+    {
+      "name": "会议编号",
+      "output_name": "meeting_id",
+      "mode": "alias"
+    },
+    {
+      "name": "合作状态",
+      "output_name": "status",
+      "approved_values": [
+        "交付中",
+        "暂停洽谈",
+        "方案验证",
+        "终止合作"
+      ]
+    },
+    {
+      "name": "会议主题",
+      "output_name": "topic",
+      "approved_values": [
+        "西南冷链夜班追溯试点",
+        "双城会员积分结算改造",
+        "高频主轴振动预测验证",
+        "沿海储能巡检移动端升级"
+      ]
+    }
+  ]
+}

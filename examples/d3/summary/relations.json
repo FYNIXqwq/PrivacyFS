@@ -1,0 +1,12 @@
+{
+  "schema_version":"d2-templates-1",
+  "files":[
+    {"path":"people.csv","primary":"pid","fields":[
+      {"name":"pid","role":"key","namespace":"people","entity_type":"person"},
+      {"name":"name","role":"identity"}]},
+    {"path":"records.txt","primary":"pid","fields":[
+      {"name":"pid","role":"key","namespace":"people","entity_type":"person"},
+      {"name":"rid","role":"key","namespace":"records","entity_type":"event"},
+      {"name":"fact","role":"sensitive","values":["需要复核","处理完成"]}]}
+  ]
+}

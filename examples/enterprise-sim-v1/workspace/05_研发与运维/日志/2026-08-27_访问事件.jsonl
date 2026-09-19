@@ -1,0 +1,3 @@
+{"at": "2026-08-27T08:42:11+08:00", "badge": "BDG-7103", "site": "成都", "event": "office_entry", "source_ip": "198.51.100.14"}
+{"at": "2026-08-27T09:02:33+08:00", "badge": "BDG-7105", "site": "南京", "event": "office_entry", "source_ip": "198.51.100.15"}
+{"at": "2026-08-27T18:06:09+08:00", "badge": "BDG-7102", "site": "长沙", "event": "office_exit", "source_ip": "198.51.100.13"}

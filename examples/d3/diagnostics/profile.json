@@ -1,0 +1,11 @@
+{
+  "schema_version":"d3-task-profile-1",
+  "task":"incident_diagnostics",
+  "recipient":"synthetic-diagnostics-reviewer",
+  "fields":[
+    {"name":"uid","output_name":"user_id","mode":"alias"},
+    {"name":"tid","output_name":"ticket_id","mode":"alias"},
+    {"name":"error","output_name":"error_code","approved_values":["TIMEOUT","CONNECTION_RESET"]},
+    {"name":"retries","output_name":"retry_count","approved_values":["2","5"]}
+  ]
+}

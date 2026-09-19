@@ -1,0 +1,13 @@
+{
+  "schema_version":"d2-templates-1",
+  "files":[
+    {"path":"accounts.csv","primary":"uid","fields":[
+      {"name":"uid","role":"key","namespace":"users","entity_type":"person"},
+      {"name":"name","role":"identity"}]},
+    {"path":"tickets.csv","primary":"uid","fields":[
+      {"name":"uid","role":"key","namespace":"users","entity_type":"person"},
+      {"name":"tid","role":"key","namespace":"tickets","entity_type":"event"},
+      {"name":"error","role":"sensitive","values":["TIMEOUT","CONNECTION_RESET"]},
+      {"name":"retries","role":"quasi"}]}
+  ]
+}

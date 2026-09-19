@@ -1,0 +1,12 @@
+{
+  "version": "d1-v1",
+  "sha256": "90452ade89138903f69d90047b886da7aa7f2f2e5ca2be010ac0d562a830ea34",
+  "synthetic": true,
+  "counts": {
+    "entity": 1008,
+    "file_group": 60,
+    "task_preservation": 20
+  },
+  "scope": "Known-list/regex localization and parsing, not NER accuracy, inference or task reasoning.",
+  "split_policy": "All variants of each template family remain in one split."
+}

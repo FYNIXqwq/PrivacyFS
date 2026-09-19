@@ -1,0 +1,12 @@
+{
+  "version": "d1-v2",
+  "sha256": "e8193030d5f44088ea9b0c8798b9b44ab5835519923e914b97cfe738633c13c3",
+  "synthetic": true,
+  "counts": {
+    "entity": 1008,
+    "file_group": 60,
+    "task_preservation": 20
+  },
+  "scope": "Known-list/regex localization and parsing, not NER accuracy, inference or task reasoning.",
+  "split_policy": "Related record/CSV wrappers, including encoding and script variants, share one split; normalized duplicate inputs cannot cross splits."
+}

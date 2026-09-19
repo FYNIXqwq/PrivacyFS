@@ -1,0 +1,243 @@
+{
+  "schema_version": "d2-templates-1",
+  "files": [
+    {
+      "path": "02_客户与商务/客户主数据.csv",
+      "primary": "客户编号",
+      "fields": [
+        {
+          "name": "客户编号",
+          "role": "key",
+          "namespace": "customers",
+          "entity_type": "client"
+        },
+        {
+          "name": "企业名称",
+          "role": "identity"
+        }
+      ]
+    },
+    {
+      "path": "03_项目交付/会议索引_最新评审.csv",
+      "primary": "客户编号",
+      "fields": [
+        {
+          "name": "客户编号",
+          "role": "key",
+          "namespace": "customers",
+          "entity_type": "client"
+        },
+        {
+          "name": "会议编号",
+          "role": "key",
+          "namespace": "meetings",
+          "entity_type": "event"
+        },
+        {
+          "name": "会议主题",
+          "role": "label"
+        }
+      ]
+    },
+    {
+      "path": "03_项目交付/会议状态摘录_2026-08-28.csv",
+      "primary": "会议编号",
+      "fields": [
+        {
+          "name": "会议编号",
+          "role": "key",
+          "namespace": "meetings",
+          "entity_type": "event"
+        },
+        {
+          "name": "合作状态",
+          "role": "sensitive",
+          "values": [
+            "交付中",
+            "暂停洽谈",
+            "方案验证",
+            "终止合作"
+          ]
+        }
+      ],
+      "state_field": "assertion_state"
+    },
+    {
+      "path": "01_人力资源/员工花名册_2026-08.csv",
+      "primary": "员工编号",
+      "fields": [
+        {
+          "name": "员工编号",
+          "role": "key",
+          "namespace": "employees",
+          "entity_type": "person"
+        },
+        {
+          "name": "姓名",
+          "role": "identity"
+        },
+        {
+          "name": "部门",
+          "role": "quasi"
+        },
+        {
+          "name": "工作城市",
+          "role": "quasi"
+        },
+        {
+          "name": "岗位",
+          "role": "quasi"
+        }
+      ]
+    },
+    {
+      "path": "01_人力资源/薪酬/2026-08_薪酬明细.csv",
+      "primary": "员工编号",
+      "fields": [
+        {
+          "name": "员工编号",
+          "role": "key",
+          "namespace": "employees",
+          "entity_type": "person"
+        },
+        {
+          "name": "工资期间",
+          "role": "label"
+        },
+        {
+          "name": "税前应发",
+          "role": "sensitive",
+          "values": [
+            "49800",
+            "34700",
+            "29000",
+            "27300",
+            "48000",
+            "39600",
+            "31700",
+            "24600",
+            "28200",
+            "22600",
+            "35800",
+            "26200"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "01_人力资源/考勤/2026-08_请假记录.csv",
+      "primary": "员工编号",
+      "fields": [
+        {
+          "name": "员工编号",
+          "role": "key",
+          "namespace": "employees",
+          "entity_type": "person"
+        },
+        {
+          "name": "假单编号",
+          "role": "key",
+          "namespace": "leave-events",
+          "entity_type": "event"
+        },
+        {
+          "name": "请假原因",
+          "role": "sensitive",
+          "values": [
+            "个人休假",
+            "家庭事务",
+            "康复复诊",
+            "调休",
+            "长期门诊随访"
+          ]
+        }
+      ],
+      "state_field": "assertion_state"
+    },
+    {
+      "path": "01_人力资源/绩效/2026Q3_期中观察.csv",
+      "primary": "员工编号",
+      "fields": [
+        {
+          "name": "员工编号",
+          "role": "key",
+          "namespace": "employees",
+          "entity_type": "person"
+        },
+        {
+          "name": "观察等级",
+          "role": "sensitive",
+          "values": [
+            "A",
+            "B",
+            "C",
+            "未评定"
+          ]
+        }
+      ],
+      "state_field": "assertion_state"
+    },
+    {
+      "path": "03_项目交付/项目台账.csv",
+      "primary": "项目编号",
+      "fields": [
+        {
+          "name": "项目编号",
+          "role": "key",
+          "namespace": "projects",
+          "entity_type": "project"
+        },
+        {
+          "name": "项目代号",
+          "role": "identity"
+        },
+        {
+          "name": "客户编号",
+          "role": "key",
+          "namespace": "customers",
+          "entity_type": "client"
+        }
+      ]
+    },
+    {
+      "path": "03_项目交付/项目成员.csv",
+      "primary": "员工编号",
+      "fields": [
+        {
+          "name": "员工编号",
+          "role": "key",
+          "namespace": "employees",
+          "entity_type": "person"
+        },
+        {
+          "name": "项目编号",
+          "role": "key",
+          "namespace": "projects",
+          "entity_type": "project"
+        }
+      ]
+    },
+    {
+      "path": "02_客户与商务/报价审批_内部.csv",
+      "primary": "项目编号",
+      "fields": [
+        {
+          "name": "项目编号",
+          "role": "key",
+          "namespace": "projects",
+          "entity_type": "project"
+        },
+        {
+          "name": "内部底价",
+          "role": "sensitive",
+          "values": [
+            "1650000",
+            "2210000",
+            "840000",
+            "1180000"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": "effectiveness-v1",
+  "sha256": "633f249691bff33889f649aac16bc046539a5f14f724df3d06cb922ee743c418",
+  "cases": 22,
+  "families": 19,
+  "synthetic": true,
+  "split_policy": "whole_authored_scenario_family",
+  "scope": "exploratory_shared_schema_not_independent_real_world_blind_test",
+  "provenance": "hand_authored_scenarios_and_deterministic_table_construction; no LLM; no customer data"
+}

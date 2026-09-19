@@ -1,0 +1,11 @@
+version: '3'
+tasks:
+  build:
+    cmds:
+      - powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1
+  dev:
+    cmds:
+      - go run .
+  test:
+    cmds:
+      - go test ./...

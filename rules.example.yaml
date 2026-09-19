@@ -1,0 +1,79 @@
+# PrivacyFS 规则文件 —— 此文件包含你的真实敏感信息，
+# 务必放在被扫描目录之外，并且不要提交到任何 git 仓库。
+#
+# 用法: privacyfs scan D:\ --rules C:\path\to\rules.yaml
+
+# 明确真人姓名；机构用 literal_orgs，一般敏感项目代号可放 keywords
+literal_names:
+  - 张三
+  - 李四
+
+# 明确机构（尤其没有“公司/大学”等后缀的名称）；不会据此合并人物主体
+literal_orgs:
+  - 某某公司
+  - Acme
+
+# 额外敏感关键词（在默认列表之上追加）
+keywords:
+  - 机密
+  - 内部资料
+
+# 额外正则（手机号/身份证/邮箱已内置）
+regexes: []
+#  - "\\b\\d{19}\\b"   # 银行卡号
+
+# 目录名包含以下词时整个子树显示为 [HIDDEN]，不再展开
+hidden_keywords: []
+#  - 私密
+
+# 遍历时整体跳过的名字（不报告、不统计）
+excludes: []
+#  - node_modules
+
+# 追加机构后缀（“X公司/集团/医院/大学”等已内置，此处加特殊的）
+org_suffixes: []
+#  - 实验室
+
+# 追加职业/职务（常见职业已内置，屏蔽后显示为 ROLE_0001 等）
+# 纯英文词需有英文词边界；COO_salary命中，cookie不因COO命中。
+professions: []
+#  - 机长
+
+# 是否启用 jieba 人名识别（默认 true）
+use_ner: true
+ner_engine: auto              # 关闭写为 'off'；未传 --ner 时保留这里的设置
+# 是否启用机构名检测（默认 true）
+detect_orgs: true
+# 是否屏蔽职业/职务词（默认 true）
+detect_professions: true
+# 是否启用拼音人名检测（默认 true）
+detect_pinyin: true
+# 是否启用身份关联词屏蔽（默认 true，覆盖 PIPL 敏感类别：学业/医疗/涉案/金融/政治面貌/宗教等）
+detect_identity: true
+# 本地 LLM 复核（默认 false）：规则和 NER 都没标记的文件名，再交给本地模型判一次
+use_llm: false
+# Ollama 模型名（先用 ollama create 注册你的 GGUF）
+llm_model: privacyfs-minicpm
+llm_url: http://127.0.0.1:11434
+# 每次扫描最多送多少个未命中项给 LLM（控制耗时）
+llm_max: 500
+llm_revision: "1"            # 同一模型名替换权重后递增；缓存同时区分模型/提示词/服务地址
+# 追加身份关联词（在内置词库之上）
+# 纯英文词/短语同样检查边界；需要显式子串匹配可放入keywords。
+identity_terms: []
+#  - 内部番号
+# 拼音启发式的豁免词（不会关闭明确名单、正则、其他检测器或LLM）
+pinyin_allowlist: []
+#  - myprojectname
+
+# 发布前上下文审计：分析多个文件、目录和层级组合后的重识别风险
+context:
+  enabled: true
+  mode: audit                    # analyze 使用；scan/mirror 由 --context-mode 指定
+  subject_scope: top_level_directory
+  # whole_release 会把整批数据视为一个主体，k 支持度通常为 1；仅用于整体警示
+  k_anonymity: 3                # 同一准标识符组合至少由几个主体共享
+  max_policy_passes: 4          # enforce 最多泛化/抑制轮次
+  fail_closed: true             # 高风险不能收敛时拒绝输出
+  blur_structure: true          # 压缩单子目录链
+  blur_stats: true              # 独立桶化数量/大小和镜像 marker

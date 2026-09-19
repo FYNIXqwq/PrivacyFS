@@ -1,0 +1,48 @@
+{
+  "schema_version": "d3-task-profile-1",
+  "task": "collaboration_statistics",
+  "recipient": "sim-hr-cost-reviewer",
+  "fields": [
+    {
+      "name": "员工编号",
+      "output_name": "employee_id",
+      "mode": "alias"
+    },
+    {
+      "name": "部门",
+      "output_name": "department",
+      "approved_values": [
+        "商务拓展",
+        "研发平台",
+        "职能支持",
+        "项目交付"
+      ]
+    },
+    {
+      "name": "工资期间",
+      "output_name": "period",
+      "approved_values": [
+        "2026-08"
+      ]
+    },
+    {
+      "name": "税前应发",
+      "output_name": "pay_band",
+      "mode": "generalize",
+      "generalizations": {
+        "49800": "40000-49999",
+        "34700": "30000-39999",
+        "29000": "20000-29999",
+        "27300": "20000-29999",
+        "48000": "40000-49999",
+        "39600": "30000-39999",
+        "31700": "30000-39999",
+        "24600": "20000-29999",
+        "28200": "20000-29999",
+        "22600": "20000-29999",
+        "35800": "30000-39999",
+        "26200": "20000-29999"
+      }
+    }
+  ]
+}

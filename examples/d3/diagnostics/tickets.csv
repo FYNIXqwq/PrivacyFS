@@ -1,0 +1,3 @@
+uid,tid,error,retries,private_note
+U001,T001,TIMEOUT,2,不应进入排障副本的原始备注
+U001,T002,CONNECTION_RESET,5,未配置列全部舍弃

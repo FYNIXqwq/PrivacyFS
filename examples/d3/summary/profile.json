@@ -1,0 +1,10 @@
+{
+  "schema_version":"d3-task-profile-1",
+  "task":"record_summary",
+  "recipient":"synthetic-summary-reviewer",
+  "fields":[
+    {"name":"pid","output_name":"person_id","mode":"alias"},
+    {"name":"rid","output_name":"record_id","mode":"alias"},
+    {"name":"fact","output_name":"fact","approved_values":["需要复核","处理完成"]}
+  ]
+}

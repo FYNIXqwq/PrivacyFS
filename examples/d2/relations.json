@@ -1,0 +1,29 @@
+{
+  "schema_version": "d2-templates-1",
+  "files": [
+    {
+      "path": "clients.csv",
+      "primary": "客户编号",
+      "fields": [
+        {"name": "客户编号", "role": "key", "namespace": "customers", "entity_type": "client"},
+        {"name": "企业名称", "role": "identity"}
+      ]
+    },
+    {
+      "path": "meetings.csv",
+      "primary": "客户编号",
+      "fields": [
+        {"name": "客户编号", "role": "key", "namespace": "customers", "entity_type": "client"},
+        {"name": "会议编号", "role": "key", "namespace": "meetings", "entity_type": "event"}
+      ]
+    },
+    {
+      "path": "notes.md",
+      "primary": "会议编号",
+      "fields": [
+        {"name": "会议编号", "role": "key", "namespace": "meetings", "entity_type": "event"},
+        {"name": "合作状态", "role": "sensitive", "values": ["暂停洽谈", "终止合作"]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "version": "d3-v1",
+  "sha256": "c7805b99dfa80c75fbeabfe701ccc65e3ca4b52807c26534170ba2e9bc8e32a3",
+  "cases": 60,
+  "families": 10,
+  "split_policy": "whole_task_family",
+  "synthetic": true
+}

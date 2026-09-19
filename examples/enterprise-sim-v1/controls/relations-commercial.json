@@ -1,0 +1,66 @@
+{
+  "schema_version": "d2-templates-1",
+  "files": [
+    {
+      "path": "02_客户与商务/客户主数据.csv",
+      "primary": "客户编号",
+      "fields": [
+        {
+          "name": "客户编号",
+          "role": "key",
+          "namespace": "customers",
+          "entity_type": "client"
+        },
+        {
+          "name": "企业名称",
+          "role": "identity"
+        }
+      ]
+    },
+    {
+      "path": "03_项目交付/会议索引_最新评审.csv",
+      "primary": "客户编号",
+      "fields": [
+        {
+          "name": "客户编号",
+          "role": "key",
+          "namespace": "customers",
+          "entity_type": "client"
+        },
+        {
+          "name": "会议编号",
+          "role": "key",
+          "namespace": "meetings",
+          "entity_type": "event"
+        },
+        {
+          "name": "会议主题",
+          "role": "label"
+        }
+      ]
+    },
+    {
+      "path": "03_项目交付/会议状态摘录_2026-08-28.csv",
+      "primary": "会议编号",
+      "fields": [
+        {
+          "name": "会议编号",
+          "role": "key",
+          "namespace": "meetings",
+          "entity_type": "event"
+        },
+        {
+          "name": "合作状态",
+          "role": "sensitive",
+          "values": [
+            "交付中",
+            "暂停洽谈",
+            "方案验证",
+            "终止合作"
+          ]
+        }
+      ],
+      "state_field": "assertion_state"
+    }
+  ]
+}
